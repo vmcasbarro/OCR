@@ -7,6 +7,27 @@
 // require('./example')
 
 $(() => {
-  // your JS code goes here
+  // require the tesseract
   const Tesseract = require('tesseract.js')
+
+  // specify image
+  const image = '../../public/tesseract-sample-image.png'
+
+  // function running the OCR
+  const parse = function (event) {
+    console.log('clicked!')
+    Tesseract.recognize(image)
+      .progress(function (message) { console.log('progress is: ', message) })
+      .then(function (result) {
+        console.log('result', result)
+        const text = result.text
+        const html = result.html
+        console.log('my text: ', text)
+        $('.results').html(html)
+      })
+  }
+
+  // event listener for clicking the run button
+  $('#OCR').on('click', parse)
+
 })
