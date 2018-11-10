@@ -13,6 +13,19 @@
     </head>
     <body>
       <h1>OCR</h1>
+      <!-- <form id="submit-photo" class="" action="" method="">
+        <input class="" type="file" name="image" accept="image/*">
+        <br>
+        <input class="btn btn-primary" type="submit">
+      </form> -->
+
+      <input id="choose-photo" type="file" accept="image/*">
+
+      <div id="upload-image" class="hidden">
+        <h3>uploaded image:</h3>
+        <img id="user-image" class="source-image" src="#" alt="your image" />
+      </div>
+
       <h3>sample source:</h3>
       <img class="source-image" src="./public/tesseract-sample-image.png" alt="sample text image">
       <br>
@@ -21,7 +34,7 @@
       <br>
       <br>
       <div class="results">
-
+        results will show up here!
       </div>
       <br>
       <br>

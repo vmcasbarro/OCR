@@ -23,11 +23,21 @@ $(() => {
         const text = result.text
         const html = result.html
         console.log('my text: ', text)
+        $('.results').html('')
         $('.results').html(html)
       })
   }
 
+  const show = function (event) {
+    event.preventDefault()
+    $('#upload-image').removeClass('hidden')
+
+    console.log('show image!', event)
+  }
+
   // event listener for clicking the run button
   $('#OCR').on('click', parse)
+  $('#choose-photo').on('change', show)
+
 
 })
