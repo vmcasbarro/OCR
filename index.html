@@ -15,12 +15,17 @@
 
 <body>
   <h1>OCR demo</h1>
+  <p>Choose an image, or use the one below.</p>
+
+  <br>
 
   <input id="choose-photo" type="file" accept="image/*">
 
+  <br><br>
+
   <div class="">
-    <h3>source image:</h3>
-    <img id="source-image" class="source-image" src="./public/tesseract-sample-image.png" alt="image to parse" />
+    <h4>Source image:</h4>
+    <img id="source-image" class="source-image" src="./public/grandfather_passage.jpeg" alt="image to parse" />
   </div>
 
   <br><br>
@@ -32,9 +37,8 @@
   <div class="hidden confidence">
     <p>Optical text recognition confidence is <span id="confidence"></span>%.</p>
   </div>
-  <div class="results">
-    results will show up here!
-  </div>
+
+  <div class="results"></div>
 
   <br><br>
 

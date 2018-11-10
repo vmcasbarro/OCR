@@ -1,15 +1,26 @@
 @import '~bootstrap/scss/bootstrap';
 
+body {
+  margin: 0 20px;
+}
+
 .source-image {
-  height: 300px;
+  height: auto;
+  max-width:100%;
   border-style: solid;
   border-color: black;
+  @media screen and (min-width: 768px) {
+    max-width: 60%;
+  }
 }
 
 .results {
   // width: 800px;
   border-style: solid;
-  border-color: blue;
+  border-color: #007bff;
+  @media screen and (min-width: 768px) {
+    max-width: 60%;
+  }
 }
 
 .hidden {

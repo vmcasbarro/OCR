@@ -15,7 +15,14 @@ $(() => {
     console.log('clicked!')
     const image = $('#source-image').attr('src')
     Tesseract.recognize(image)
-      .progress(function (message) { console.log('progress is: ', message) })
+      .progress(function (message) {
+        if (message.status === 'recognizing text' && message.progress > 0) {
+          const percent = Math.round(message.progress * 100)
+          $('.results').html(`processing, ${percent}% complete.`)
+          console.log('progress is:', message.progress)
+        }
+        // console.log('progress is: ', message)
+      })
       .then(function (result) {
         console.log('result', result)
         const text = result.text
