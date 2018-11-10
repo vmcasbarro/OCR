@@ -31,8 +31,19 @@ $(() => {
   const show = function (event) {
     event.preventDefault()
     $('#upload-image').removeClass('hidden')
+    $('#sample-image').addClass('hidden')
 
-    console.log('show image!', event)
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader()
+
+      reader.onload = function (e) {
+        $('#user-image')
+          .attr('src', e.target.result)
+      }
+      reader.readAsDataURL(event.target.files[0])
+    }
+
+    console.log('show image!', event.target.files)
   }
 
   // event listener for clicking the run button
