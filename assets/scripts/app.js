@@ -20,9 +20,12 @@ $(() => {
         console.log('result', result)
         const text = result.text
         const html = result.html
-        console.log('my text: ', text)
+        const confidence = result.confidence
+        console.log('my confidence: ', confidence)
         $('.results').html('')
         $('.results').html(html)
+        $('.confidence').removeClass('hidden')
+        $('#confidence').text(confidence)
       })
   }
 
