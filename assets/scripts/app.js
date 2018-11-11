@@ -28,7 +28,7 @@ $(() => {
     }
   })
   const progressBar = new ProgressBar.Line('#progress-bar', {
-    strokeWidth: 4,
+    strokeWidth: 2,
     easing: 'easeInOut',
     duration: 1400,
     color: '#007bff',
