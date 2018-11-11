@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>OCR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <h1>OCR demo</h1>
+  <p>Choose an image, or use the one below.</p>
+
+  <br>
+
+  <input id="choose-photo" type="file" accept="image/*">
+
+  <br><br>
+
+  <div class="">
+    <h4>Source image:</h4>
+    <img id="source-image" class="source-image limit-width" src="./public/grandfather_passage.jpeg" alt="image to parse" />
+  </div>
+
+  <br><br>
+
+  <button id="OCR" type="button" class="btn btn-primary">Run OCR!</button>
+
+  <br><br>
+  <div id="confidence-bar" class="limit-width"></div>
+
+  <div class="hidden confidence">
+    <p>Optical text recognition confidence is <span id="confidence"></span>%.</p>
+  </div>
+
+  <div id="progress-bar" class="hidden limit-width"></div>
+  <div class="results limit-width">
+  </div>
+
+  <br><br>
+
+</body>
+
+</html>
