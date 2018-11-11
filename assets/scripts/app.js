@@ -12,8 +12,8 @@ $(() => {
 
   // require progressbar.js
   const ProgressBar = require('progressbar.js')
-  const line = new ProgressBar.Line('#bar')
-  const confidenceBar = new ProgressBar.Line('#bar', {
+
+  const confidenceBar = new ProgressBar.Line('#confidence-bar', {
     strokeWidth: 1,
     easing: 'easeInOut',
     duration: 1400,
@@ -26,6 +26,14 @@ $(() => {
     step: (state, bar) => {
       bar.path.setAttribute('stroke', state.color)
     }
+  })
+  const progressBar = new ProgressBar.Line('#progress-bar', {
+    strokeWidth: 4,
+    easing: 'easeInOut',
+    duration: 1400,
+    color: '#007bff',
+    trailWidth: 0,
+    svgStyle: {width: '100%', height: '100%'}
   })
 
   // function running the OCR
@@ -40,6 +48,8 @@ $(() => {
           const decimal = message.progress
           const percent = Math.round(message.progress * 100)
           $('.results').html(`processing, ${percent}% complete.`)
+          $('#progress-bar').removeClass('hidden')
+          progressBar.set(decimal)
           console.log('progress is:', message.progress)
         }
         // console.log('progress is: ', message)
