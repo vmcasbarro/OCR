@@ -4,6 +4,12 @@ body {
   margin: 0 20px;
 }
 
+.limit-width {
+  @media screen and (min-width: 768px) {
+    max-width: 60%;
+  }
+}
+
 .source-image {
   height: auto;
   max-width:100%;

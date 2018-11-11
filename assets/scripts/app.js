@@ -10,13 +10,34 @@ $(() => {
   // require the tesseract
   const Tesseract = require('tesseract.js')
 
+  // require progressbar.js
+  const ProgressBar = require('progressbar.js')
+  const line = new ProgressBar.Line('#bar')
+  const confidenceBar = new ProgressBar.Line('#bar', {
+    strokeWidth: 1,
+    easing: 'easeInOut',
+    duration: 1400,
+    color: '#FFEA82',
+    trailColor: '#eee',
+    trailWidth: 1,
+    svgStyle: {width: '100%', height: '100%'},
+    from: {color: '#FFEA82'},
+    to: {color: '#4BB543'},
+    step: (state, bar) => {
+      bar.path.setAttribute('stroke', state.color)
+    }
+  })
+
   // function running the OCR
   const parse = function (event) {
     console.log('clicked!')
     const image = $('#source-image').attr('src')
     Tesseract.recognize(image)
       .progress(function (message) {
+        confidenceBar.set(0)
+        $('.confidence').addClass('hidden')
         if (message.status === 'recognizing text' && message.progress > 0) {
+          const decimal = message.progress
           const percent = Math.round(message.progress * 100)
           $('.results').html(`processing, ${percent}% complete.`)
           console.log('progress is:', message.progress)
@@ -29,6 +50,7 @@ $(() => {
         const html = result.html
         const confidence = result.confidence
         console.log('my confidence: ', confidence)
+        confidenceBar.animate(confidence / 100)
         $('.results').html('')
         $('.results').html(html)
         $('.confidence').removeClass('hidden')

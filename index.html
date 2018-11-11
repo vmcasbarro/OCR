@@ -25,7 +25,7 @@
 
   <div class="">
     <h4>Source image:</h4>
-    <img id="source-image" class="source-image" src="./public/grandfather_passage.jpeg" alt="image to parse" />
+    <img id="source-image" class="source-image limit-width" src="./public/grandfather_passage.jpeg" alt="image to parse" />
   </div>
 
   <br><br>
@@ -33,12 +33,13 @@
   <button id="OCR" type="button" class="btn btn-primary">Run OCR!</button>
 
   <br><br>
+  <div id="bar" class="limit-width"></div>
 
   <div class="hidden confidence">
     <p>Optical text recognition confidence is <span id="confidence"></span>%.</p>
   </div>
 
-  <div class="results"></div>
+  <div class="results limit-width"></div>
 
   <br><br>
 
